@@ -1,7 +1,6 @@
 package miniproj.hepai.dao;
 
 import miniproj.hepai.beans.Comment;
-import miniproj.hepai.beans.Feed;
 import miniproj.hepai.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

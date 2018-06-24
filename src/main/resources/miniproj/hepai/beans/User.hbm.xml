@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+   <class name="miniproj.hepai.beans.User" table="user">
+       <!--主键对应-->
+       <id name="id" column="id">
+           <!--主键策略-->
+           <generator class="native"/>
+       </id>
+       <!--其他字段-->
+       <property name="name" column="name"/>
+       <property name="photo" column="photo"/>
+       <property name="sex" column="sex"/>
+       <property name="qq" column="qq"/>
+       <property name="password" column="password"/>
+   </class>
+</hibernate-mapping>

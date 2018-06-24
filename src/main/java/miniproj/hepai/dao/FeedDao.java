@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FeedDao {
@@ -52,15 +53,20 @@ public class FeedDao {
     public static List<Feed> getFeedList(FeedGetter getter) {
         int index = getter.getIndex();
         int count = getter.getCount();
+
         String hql = "FROM Feed order by stamp desc";
         Session session = HibernateUtil.getCurrentSession();
         Transaction tr = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setFirstResult(index);
         query.setMaxResults(count);
-        List<Feed> list = query.list();
-        System.out.println("feed size:" + list.size());
+        List<Feed> list =new ArrayList<>();
+        int hot=1;
+        list.add(session.get(Feed.class, hot));
+        list.addAll(query.list());
         tr.commit();
+        System.out.println("feed size:" + list.size());
+
         return list;
     }
 

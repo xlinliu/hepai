@@ -14,7 +14,8 @@
 		<!--必选设置-->
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.connection.url">jdbc:mariadb://tdsql-p09qqslj.sql.tencentcdb.com:52/hepai_test</property>
+		<!--<property name="hibernate.connection.url">jdbc:mariadb://tdsql-p09qqslj.sql.tencentcdb.com:52/hepai</property>-->
+		<property name="hibernate.connection.url">jdbc:mariadb://172.16.0.15:3306/hepai</property>
 		<property name="hibernate.connection.username">hepai</property>
 		<property name="hibernate.connection.password">hepai12345,.</property>
         <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
@@ -42,6 +43,7 @@
 		<!--关联关系对象-->
 		<mapping resource="miniproj/hepai/beans/Feed.hbm.xml"/>
 		<mapping resource="miniproj/hepai/beans/Comment.hbm.xml"/>
+		<mapping resource="miniproj/hepai/beans/User.hbm.xml"/>
 
         <!--<mapping resource="org/hibernate/test/legacy/Simple.hbm.xml"/>-->
 		<!--<class-cache-->

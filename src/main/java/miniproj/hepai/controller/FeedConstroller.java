@@ -1,21 +1,16 @@
 package miniproj.hepai.controller;
 
-import miniproj.hepai.beans.Comment;
 import miniproj.hepai.beans.Feed;
 import miniproj.hepai.model.FeedGetter;
 import miniproj.hepai.dao.FeedDao;
 import miniproj.hepai.model.FeedM;
-import miniproj.hepai.utils.FeedGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 @Controller
 public class FeedConstroller {
     @RequestMapping(value = "getfeed", method = RequestMethod.POST)
