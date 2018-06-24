@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="miniproj.hepai.beans.Comment" table="comment" schema="dbforlearn">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="posterId" column="posterId"/>
+        <property name="content" column="content"/>
+        <property name="stamp" column="stamp"/>
+        <!--设置一对多-->
+        <!--
+            name:javabean的属性名
+            class：属性的类的全名
+            column：外键名-->
+        <!--配置级联保存 cascade：save-update,把瞬时态的一端自动变成持久态-->
+        <many-to-one name="feed" class="miniproj.hepai.beans.Feed" column="feed_comment_lnk" cascade="save-update" />
+    </class>
+</hibernate-mapping>

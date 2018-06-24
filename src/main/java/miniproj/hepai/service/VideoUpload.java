@@ -10,6 +10,7 @@ public class VideoUpload {
         try {
             VodUploadCommitResponse response = vodApi.upload("C:/Users/arionliu/Documents/test1.mp4");
             System.out.println(response.getFileId());
+            response.getFileId();
         }catch (Exception e){
             System.out.println("upload faild");
         }

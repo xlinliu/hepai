@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="info" monitorInterval="400">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS}{GMT+8} %-5level %class %M -%msg%xEx%n"></PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+       <Logger name="miniproj.hepai" additivity="false" level="trace">
+           <Appender-ref ref="console"/>
+       </Logger>
+        <Logger name="com.mchange" additivity="false" level="debug">
+            <Appender-ref ref="console"/>
+        </Logger>
+        <Root level="info">
+            <Appender-ref ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>

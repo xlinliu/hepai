@@ -1,15 +1,12 @@
-package miniproj.hepai.beans;
+package miniproj.hepai.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import miniproj.hepai.beans.Feed;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-public class Comment implements Comparable<Comment> {
+public class CommentM implements Comparable<CommentM> {
     private Integer id;
     private Integer posterId;
     private String content;
-    private Feed feed;
+    private Integer feedId;
     private Long stamp;
 
 
@@ -48,19 +45,17 @@ public class Comment implements Comparable<Comment> {
     public void setContent(String content) {
         this.content = content;
     }
-    @ManyToOne
-    @JoinColumn(name="feed")
-    @JsonIgnore
-    public Feed getFeed() {
-        return feed;
+
+    public Integer getFeedId() {
+        return feedId;
     }
 
-    public void setFeed(Feed feed) {
-        this.feed = feed;
+    public void setFeedId(Integer feedId) {
+        this.feedId = feedId;
     }
 
     @Override
-    public int compareTo(Comment o) {
+    public int compareTo(CommentM o) {
         return o.getStamp()>stamp?-1:1;
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SecretConstroller {
-    private static final String NONE = null;
+  //  private static final String NONE = null;
 
 
     /**

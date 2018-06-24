@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+   <class name="miniproj.hepai.beans.Feed" table="feed">
+       <!--主键对应-->
+       <id name="id" column="id">
+           <!--主键策略-->
+           <generator class="native"/>
+       </id>
+       <!--其他字段-->
+       <property name="posterId" column="posterId"/>
+       <property name="video" column="video"/>
+       <property name="likeCount" column="likeCount"/>
+       <property name="description" column="description"/>
+       <property name="stamp" column="stamp"/>
+       <set name="comments" cascade="delete-orphan" inverse="false" lazy="false">
+           <key column="feed_comment_lnk"/>
+           <one-to-many class="miniproj.hepai.beans.Comment" />
+       </set>
+   </class>
+</hibernate-mapping>

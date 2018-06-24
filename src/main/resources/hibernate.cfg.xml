@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!--必选设置-->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.connection.url">jdbc:mariadb://tdsql-p09qqslj.sql.tencentcdb.com:52/hepai_test</property>
+		<property name="hibernate.connection.username">hepai</property>
+		<property name="hibernate.connection.password">hepai12345,.</property>
+        <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
+
+		<!--连接池设置-->
+		<property name="hibernate.cache.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<!--最小连接数：连接池中初始化的连接数-->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<!--最大连接数：连接池中最多可以有的连接数-->
+		<property name="hibernate.c3p0.max_size">30</property>
+		<!--最大空闲时间-->
+		<property name="hibernate.c3p0.timeout">1800</property>
+		<!--<property name="hibernate.c3p0.max_statements">50</property>-->
+		<!--<property name="hibernate.c3p0.idle_test_period">120</property>-->
+		<!--当连接池耗尽是c3p0一次性获取得连接数-->
+		<!--<property name="hibernate.c3p0.acquire_increment">2</property>-->
+
+		<!--自动建表-->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!--使用session绑定，使得线程内共享同一个session-->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<!--关联关系对象-->
+		<mapping resource="miniproj/hepai/beans/Feed.hbm.xml"/>
+		<mapping resource="miniproj/hepai/beans/Comment.hbm.xml"/>
+
+        <!--<mapping resource="org/hibernate/test/legacy/Simple.hbm.xml"/>-->
+		<!--<class-cache-->
+			<!--class="org.hibernate.test.legacy.Simple"-->
+			<!--region="Simple"-->
+			<!--usage="read-write"/>-->
+	</session-factory>
+</hibernate-configuration>

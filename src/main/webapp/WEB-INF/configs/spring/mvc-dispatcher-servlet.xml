@@ -23,6 +23,8 @@
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    <!-- 访问静态资源 -->
+     <mvc:resources location="/assets/" mapping="/**"/>
     <mvc:annotation-driven  />
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
